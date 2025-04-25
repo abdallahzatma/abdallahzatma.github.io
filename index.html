@@ -4,22 +4,62 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Abdallah Zatma - Web Developer</title>
-  <link rel="stylesheet" href="styles.css" />
-  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f8f9fa;
+    }
+    .profile-image {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid #0d6efd;
+    }
+    header {
+      text-align: center;
+      padding: 2rem 0;
+      background-color: #ffffff;
+      border-bottom: 1px solid #dee2e6;
+    }
+    section {
+      padding: 2rem 0;
+    }
+    .container {
+      max-width: 960px;
+    }
+    h2 {
+      border-bottom: 2px solid #0d6efd;
+      padding-bottom: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    ul li {
+      margin-bottom: 0.5rem;
+    }
+    .lang-toggle {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
+  <div class="container position-relative">
+    <button class="btn btn-sm btn-outline-primary lang-toggle" onclick="toggleLanguage()">عربي</button>
     <header>
-      <img src="https://scontent.fjrs10-1.fna.fbcdn.net/v/t39.30808-6/487870893_9279026575540853_347646858249798144_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=ZPQwWJGYuCgQ7kNvwF2ZIBE&_nc_oc=AdnAOgX_vkPWwClWuczOt8Zw0Kwz8AFbF7hCjXUZz2KymhoODE7kgFHLJ7FNpsWBJxs&_nc_zt=23&_nc_ht=scontent.fjrs10-1.fna&_nc_gid=bmJapMW4wq63PK5erPAmPA&oh=00_AfG6WRf94ODZyUW5r1Ctq5ZhJhLU7zj2nv-85zKw-Fs9IA&oe=6810FB0C" alt="Abdallah Zatma" class="profile-image" />
-
+      <img src="https://scontent.fjrs10-1.fna.fbcdn.net/v/t39.30808-6/487870893_9279026575540853_347646858249798144_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=ZPQwWJGYuCgQ7kNvwF2ZIBE&_nc_oc=AdnAOgX_vkPWwClWuczOt8Zw0Kwz8AFbF7hCjXUZz2KymhoODE7kgFHLJ7FNpsWBJxs&_nc_zt=23&_nc_ht=scontent.fjrs10-1.fna&_nc_gid=bmJapMW4wq63PK5erPAmPA&oh=00_AfG6WRf94ODZyUW5r1Ctq5ZhJhLU7zj2nv-85zKw-Fs9IA&oe=6810FB0C" alt="Abdallah Zatma" class="profile-image mb-3" />
       <h1>Abdallah Zatma</h1>
-      <p>Web Developer (PHP & Laravel)</p>
-      <p>Palestine, Gaza Strip</p>
+      <p class="text-muted lang-en">Web Developer (PHP & Laravel)</p>
+      <p class="text-muted lang-ar d-none">مطور ويب (PHP و Laravel)</p>
+      <p class="text-secondary lang-en">Palestine, Gaza Strip</p>
+      <p class="text-secondary lang-ar d-none">فلسطين، قطاع غزة</p>
     </header>
 
     <section class="contact">
-      <h2>Contact</h2>
-      <ul>
+      <h2 class="lang-en">Contact</h2>
+      <h2 class="lang-ar d-none">تواصل</h2>
+      <ul class="list-unstyled">
         <li>Email: <a href="mailto:abdallahzatma@gmail.com">abdallahzatma@gmail.com</a></li>
         <li>LinkedIn: <a href="https://www.linkedin.com/in/abdallahzatma" target="_blank">abdallahzatma</a></li>
         <li>Twitter: <a href="https://twitter.com/abdallah_zatma" target="_blank">@abdallah_zatma</a></li>
@@ -28,52 +68,95 @@
     </section>
 
     <section class="summary">
-      <h2>Summary</h2>
-      <p>
-        Highly skilled and dedicated web developer with expertise in Laravel framework.
-        I possess a strong understanding of web development principles and practices,
-        and I am committed to delivering high-quality and efficient solutions.
-        With a passion for creating innovative and user-friendly websites, I thrive in
-        collaborative environments and excel at managing projects from inception to completion.
+      <h2 class="lang-en">Summary</h2>
+      <h2 class="lang-ar d-none">نبذة</h2>
+      <p class="lang-en">
+        Highly skilled and dedicated web developer with expertise in Laravel framework. I possess a strong understanding of web development principles and practices, and I am committed to delivering high-quality and efficient solutions. With a passion for creating innovative and user-friendly websites, I thrive in collaborative environments and excel at managing projects from inception to completion.
+      </p>
+      <p class="lang-ar d-none">
+        مطور ويب ماهر ومتفانٍ يمتلك خبرة في إطار عمل Laravel. أمتلك فهماً قوياً لمبادئ وممارسات تطوير الويب، وألتزم بتقديم حلول عالية الجودة وكفؤة. أتمتع بشغف لإنشاء مواقع مبتكرة وسهلة الاستخدام، وأبرع في البيئات التعاونية وإدارة المشاريع من البداية حتى النهاية.
       </p>
     </section>
 
     <section class="experience">
-      <h2>Experience</h2>
-      <h3>Freelance Web Developer</h3>
-      <p>November 2020 - Present (4 years 6 months)</p>
-      <p>Gaza Strip</p>
+      <h2 class="lang-en">Experience</h2>
+      <h2 class="lang-ar d-none">الخبرة</h2>
+      <div>
+        <h5 class="lang-en">Freelance Web Developer</h5>
+        <h5 class="lang-ar d-none">مطور ويب حر</h5>
+        <p class="text-muted">November 2020 - Present (4 years 6 months)</p>
+        <p class="lang-en">Gaza Strip</p>
+        <p class="lang-ar d-none">قطاع غزة</p>
+      </div>
     </section>
 
     <section class="education">
-      <h2>Education</h2>
-      <p><strong>Islamic University of Gaza</strong></p>
-      <p>Bachelor's degree, Information Technology</p>
-      <p>September 2019 - June 2023</p>
+      <h2 class="lang-en">Education</h2>
+      <h2 class="lang-ar d-none">التعليم</h2>
+      <div>
+        <p><strong>Islamic University of Gaza</strong></p>
+        <p class="lang-en">Bachelor's degree, Information Technology</p>
+        <p class="lang-ar d-none">درجة البكالوريوس، تكنولوجيا المعلومات</p>
+        <p class="text-muted">September 2019 - June 2023</p>
+      </div>
     </section>
 
     <section class="skills">
-      <h2>Top Skills</h2>
-      <ul >
-        <li>Laravel Framework</li>
-        <li>RESTful API Development</li>
-        <li>Blade Templating</li>
-        <li>Eloquent ORM</li>
-        <li>MVC Architecture</li>
-        <li>MySQL & Database Design</li>
-        <li>Authentication & Authorization</li>
-        <li>Unit Testing</li>
-        <li>Queue & Jobs</li>
-        <li>Artisan Console</li>
-        <li>Laravel Mix</li>
-        <li>API Resource Collections</li>
-        <li>Middleware</li>
-        <li>Deployment & Optimization</li>
-        <li>Version Control (Git)</li>
-        <li>Composer & Package Management</li>
-      </ul>
+      <h2 class="lang-en">Top Skills</h2>
+      <h2 class="lang-ar d-none">المهارات</h2>
+      <div class="row">
+        <div class="col-md-6">
+          <ul>
+            <li>Laravel Framework</li>
+            <li>RESTful API Development</li>
+            <li>Blade Templating</li>
+            <li>Eloquent ORM</li>
+            <li>MVC Architecture</li>
+            <li>MySQL & Database Design</li>
+            <li>Authentication & Authorization</li>
+            <li>Unit Testing</li>
+          </ul>
+        </div>
+        <div class="col-md-6">
+          <ul>
+            <li>Queue & Jobs</li>
+            <li>Artisan Console</li>
+            <li>Laravel Mix</li>
+            <li>API Resource Collections</li>
+            <li>Middleware</li>
+            <li>Deployment & Optimization</li>
+            <li>Version Control (Git)</li>
+            <li>Composer & Package Management</li>
+          </ul>
+        </div>
+      </div>
     </section>
-    
+
+    <footer class="text-center py-4 mt-5 border-top">
+      <p class="mb-0">&copy; 2025 Abdallah Zatma. All rights reserved.</p>
+    </footer>
   </div>
+
+  <script>
+    let currentLang = 'en';
+
+    function toggleLanguage() {
+      currentLang = currentLang === 'en' ? 'ar' : 'en';
+
+      const showEn = currentLang === 'en';
+      document.querySelectorAll('.lang-en').forEach(el => el.classList.toggle('d-none', !showEn));
+      document.querySelectorAll('.lang-ar').forEach(el => el.classList.toggle('d-none', showEn));
+
+      document.querySelector('.lang-toggle').textContent = showEn ? 'عربي' : 'English';
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const showEn = currentLang === 'en';
+      document.querySelectorAll('.lang-en').forEach(el => el.classList.toggle('d-none', !showEn));
+      document.querySelectorAll('.lang-ar').forEach(el => el.classList.toggle('d-none', showEn));
+      document.querySelector('.lang-toggle').textContent = showEn ? 'عربي' : 'English';
+    });
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
