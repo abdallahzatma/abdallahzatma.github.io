@@ -1,162 +1,288 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Abdallah Zatma - Web Developer</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f8f9fa;
-    }
-    .profile-image {
-      width: 150px;
-      height: 150px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 4px solid #0d6efd;
-    }
-    header {
-      text-align: center;
-      padding: 2rem 0;
-      background-color: #ffffff;
-      border-bottom: 1px solid #dee2e6;
-    }
-    section {
-      padding: 2rem 0;
-    }
-    .container {
-      max-width: 960px;
-    }
-    h2 {
-      border-bottom: 2px solid #0d6efd;
-      padding-bottom: 0.5rem;
-      margin-bottom: 1rem;
-    }
-    ul li {
-      margin-bottom: 0.5rem;
-    }
-    .lang-toggle {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abdallah Zatma — CV</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy:   #1B2A4A;
+    --blue:   #2B6CB0;
+    --blue-lt:#EBF4FF;
+    --dark:   #1a1a1a;
+    --gray:   #444;
+    --lgray:  #777;
+    --border: #D8E4EF;
+    --bg:     #F7F9FC;
+    --white:  #ffffff;
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--dark);
+    font-size: 14px;
+    line-height: 1.6;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .page {
+    max-width: 820px;
+    margin: 40px auto;
+    background: var(--white);
+    box-shadow: 0 4px 32px rgba(27,42,74,.10);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    background: var(--navy);
+    padding: 44px 48px 36px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 24px;
+  }
+  .header-left h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 36px;
+    color: #fff;
+    letter-spacing: -.5px;
+    line-height: 1.1;
+    margin-bottom: 6px;
+  }
+  .header-left .title {
+    font-size: 13.5px;
+    color: #A8C5E8;
+    font-weight: 400;
+    letter-spacing: .5px;
+  }
+  .header-right {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .contact-item {
+    font-size: 12.5px;
+    color: #C5D9EE;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 7px;
+  }
+  .contact-item svg { opacity: .7; flex-shrink: 0; }
+  .contact-item a { color: inherit; text-decoration: none; }
+
+  /* ── BODY ── */
+  .body { padding: 0 48px 48px; }
+
+  /* ── SECTION ── */
+  .section { margin-top: 32px; }
+  .section-title {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--blue);
+    padding-bottom: 7px;
+    border-bottom: 2px solid var(--blue);
+    margin-bottom: 16px;
+  }
+
+  /* ── SUMMARY ── */
+  .summary p {
+    color: var(--gray);
+    font-size: 13.5px;
+    line-height: 1.75;
+  }
+
+  /* ── EXPERIENCE ── */
+  .job { margin-bottom: 6px; }
+  .job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-bottom: 3px;
+  }
+  .job-title {
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--dark);
+  }
+  .job-company { color: var(--blue); font-size: 13.5px; margin-left: 6px; }
+  .job-period {
+    font-size: 12px;
+    color: var(--lgray);
+    font-style: italic;
+  }
+  .job ul {
+    padding-left: 16px;
+    margin-top: 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .job ul li {
+    color: var(--gray);
+    font-size: 13px;
+    line-height: 1.6;
+  }
+  .job ul li::marker { color: var(--blue); }
+
+  /* ── EDUCATION ── */
+  .edu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+  .edu-degree { font-weight: 600; font-size: 14px; color: var(--dark); }
+  .edu-period { font-size: 12px; color: var(--lgray); font-style: italic; }
+  .edu-school { color: var(--blue); font-size: 13px; margin-top: 2px; }
+
+  /* ── SKILLS ── */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 8px 16px;
+    align-items: baseline;
+  }
+  .skill-cat {
+    font-weight: 600;
+    font-size: 12.5px;
+    color: var(--navy);
+  }
+  .skill-detail {
+    font-size: 13px;
+    color: var(--gray);
+  }
+
+  /* ── LANGUAGES ── */
+  .lang-row { display: flex; gap: 32px; }
+  .lang-item strong { font-size: 13.5px; color: var(--dark); margin-right: 4px; }
+  .lang-item span   { font-size: 13px; color: var(--lgray); }
+
+  /* ── PRINT ── */
+  @media print {
+    body { background: white; }
+    .page { margin: 0; box-shadow: none; border-radius: 0; }
+  }
+  @media (max-width: 600px) {
+    .header { flex-direction: column; align-items: flex-start; padding: 28px 24px; }
+    .header-right { text-align: left; }
+    .contact-item { justify-content: flex-start; }
+    .body { padding: 0 24px 32px; }
+    .skills-grid { grid-template-columns: 1fr; gap: 4px; }
+  }
+</style>
 </head>
 <body>
-  <div class="container position-relative">
-    <button class="btn btn-sm btn-outline-primary lang-toggle" onclick="toggleLanguage()">عربي</button>
-    <header>
-      <img src="https://scontent.fjrs10-1.fna.fbcdn.net/v/t39.30808-6/487870893_9279026575540853_347646858249798144_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=ZPQwWJGYuCgQ7kNvwF2ZIBE&_nc_oc=AdnAOgX_vkPWwClWuczOt8Zw0Kwz8AFbF7hCjXUZz2KymhoODE7kgFHLJ7FNpsWBJxs&_nc_zt=23&_nc_ht=scontent.fjrs10-1.fna&_nc_gid=bmJapMW4wq63PK5erPAmPA&oh=00_AfG6WRf94ODZyUW5r1Ctq5ZhJhLU7zj2nv-85zKw-Fs9IA&oe=6810FB0C" alt="Abdallah Zatma" class="profile-image mb-3" />
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-left">
       <h1>Abdallah Zatma</h1>
-      <p class="text-muted lang-en">Web Developer (PHP & Laravel)</p>
-      <p class="text-muted lang-ar d-none">مطور ويب (PHP و Laravel)</p>
-      <p class="text-secondary lang-en">Palestine, Gaza Strip</p>
-      <p class="text-secondary lang-ar d-none">فلسطين، قطاع غزة</p>
-    </header>
-
-    <section class="contact">
-      <h2 class="lang-en">Contact</h2>
-      <h2 class="lang-ar d-none">تواصل</h2>
-      <ul class="list-unstyled">
-        <li>Email: <a href="mailto:abdallahzatma@gmail.com">abdallahzatma@gmail.com</a></li>
-        <li>LinkedIn: <a href="https://www.linkedin.com/in/abdallahzatma" target="_blank">abdallahzatma</a></li>
-        <li>Twitter: <a href="https://twitter.com/abdallah_zatma" target="_blank">@abdallah_zatma</a></li>
-        <li>GitHub: <a href="https://github.com/abdallahzatma" target="_blank">abdallahzatma</a></li>
-      </ul>
-    </section>
-
-    <section class="summary">
-      <h2 class="lang-en">Summary</h2>
-      <h2 class="lang-ar d-none">نبذة</h2>
-      <p class="lang-en">
-        Highly skilled and dedicated web developer with expertise in Laravel framework. I possess a strong understanding of web development principles and practices, and I am committed to delivering high-quality and efficient solutions. With a passion for creating innovative and user-friendly websites, I thrive in collaborative environments and excel at managing projects from inception to completion.
-      </p>
-      <p class="lang-ar d-none">
-        مطور ويب ماهر ومتفانٍ يمتلك خبرة في إطار عمل Laravel. أمتلك فهماً قوياً لمبادئ وممارسات تطوير الويب، وألتزم بتقديم حلول عالية الجودة وكفؤة. أتمتع بشغف لإنشاء مواقع مبتكرة وسهلة الاستخدام، وأبرع في البيئات التعاونية وإدارة المشاريع من البداية حتى النهاية.
-      </p>
-    </section>
-
-    <section class="experience">
-      <h2 class="lang-en">Experience</h2>
-      <h2 class="lang-ar d-none">الخبرة</h2>
-      <div>
-        <h5 class="lang-en">Freelance Web Developer</h5>
-        <h5 class="lang-ar d-none">مطور ويب حر</h5>
-        <p class="text-muted">November 2020 - Present (4 years 6 months)</p>
-        <p class="lang-en">Gaza Strip</p>
-        <p class="lang-ar d-none">قطاع غزة</p>
+      <div class="title">Laravel &amp; PHP Web Developer</div>
+    </div>
+    <div class="header-right">
+      <div class="contact-item">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+        <a href="mailto:abdallahzatma@gmail.com">abdallahzatma@gmail.com</a>
       </div>
-    </section>
-
-    <section class="education">
-      <h2 class="lang-en">Education</h2>
-      <h2 class="lang-ar d-none">التعليم</h2>
-      <div>
-        <p><strong>Islamic University of Gaza</strong></p>
-        <p class="lang-en">Bachelor's degree, Information Technology</p>
-        <p class="lang-ar d-none">درجة البكالوريوس، تكنولوجيا المعلومات</p>
-        <p class="text-muted">September 2019 - June 2023</p>
+      <div class="contact-item">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.1 1.22 2 2 0 012.11 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+        +972 599 687 051
       </div>
-    </section>
-
-    <section class="skills">
-      <h2 class="lang-en">Top Skills</h2>
-      <h2 class="lang-ar d-none">المهارات</h2>
-      <div class="row">
-        <div class="col-md-6">
-          <ul>
-            <li>Laravel Framework</li>
-            <li>RESTful API Development</li>
-            <li>Blade Templating</li>
-            <li>Eloquent ORM</li>
-            <li>MVC Architecture</li>
-            <li>MySQL & Database Design</li>
-            <li>Authentication & Authorization</li>
-            <li>Unit Testing</li>
-          </ul>
-        </div>
-        <div class="col-md-6">
-          <ul>
-            <li>Queue & Jobs</li>
-            <li>Artisan Console</li>
-            <li>Laravel Mix</li>
-            <li>API Resource Collections</li>
-            <li>Middleware</li>
-            <li>Deployment & Optimization</li>
-            <li>Version Control (Git)</li>
-            <li>Composer & Package Management</li>
-          </ul>
-        </div>
+      <div class="contact-item">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        <a href="https://linkedin.com/in/abdallahzatma" target="_blank">linkedin.com/in/abdallahzatma</a>
       </div>
-    </section>
-
-    <footer class="text-center py-4 mt-5 border-top">
-      <p class="mb-0">&copy; 2025 Abdallah Zatma. All rights reserved.</p>
-    </footer>
+      <div class="contact-item">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+        <a href="https://github.com/abdallahzatma" target="_blank">github.com/abdallahzatma</a>
+      </div>
+    </div>
   </div>
 
-  <script>
-    let currentLang = 'en';
+  <!-- BODY -->
+  <div class="body">
 
-    function toggleLanguage() {
-      currentLang = currentLang === 'en' ? 'ar' : 'en';
+    <!-- SUMMARY -->
+    <div class="section summary">
+      <div class="section-title">Summary</div>
+      <p>Laravel/PHP developer with 5+ years of experience building web applications and REST APIs. Skilled in delivering clean, efficient, and maintainable code across the full stack. Comfortable working independently or within a team, from project planning through to deployment.</p>
+    </div>
 
-      const showEn = currentLang === 'en';
-      document.querySelectorAll('.lang-en').forEach(el => el.classList.toggle('d-none', !showEn));
-      document.querySelectorAll('.lang-ar').forEach(el => el.classList.toggle('d-none', showEn));
+    <!-- EXPERIENCE -->
+    <div class="section">
+      <div class="section-title">Experience</div>
+      <div class="job">
+        <div class="job-header">
+          <div>
+            <span class="job-title">Full-Stack Web Developer</span>
+            <span class="job-company">— Freelance</span>
+          </div>
+          <div class="job-period">Nov 2020 – Present</div>
+        </div>
+        <ul>
+          <li>Built and deployed 10+ Laravel web applications for clients in e-commerce, services, and non-profit sectors.</li>
+          <li>Developed RESTful APIs for mobile (Flutter) and third-party integrations using Laravel Sanctum/Passport.</li>
+          <li>Designed and optimised MySQL database schemas, improving query performance by up to 40%.</li>
+          <li>Integrated payment gateways, SMS providers, and third-party services into client applications.</li>
+          <li>Delivered front-end interfaces using Blade, Bootstrap 5, and JavaScript.</li>
+          <li>Managed source control with Git &amp; GitHub across solo and team projects.</li>
+        </ul>
+      </div>
+    </div>
 
-      document.querySelector('.lang-toggle').textContent = showEn ? 'عربي' : 'English';
-    }
+    <!-- EDUCATION -->
+    <div class="section">
+      <div class="section-title">Education</div>
+      <div class="edu-header">
+        <div class="edu-degree">BSc in Information Technology</div>
+        <div class="edu-period">2019 – 2023</div>
+      </div>
+      <div class="edu-school">Islamic University of Gaza (IUGaza)</div>
+    </div>
 
-    document.addEventListener('DOMContentLoaded', () => {
-      const showEn = currentLang === 'en';
-      document.querySelectorAll('.lang-en').forEach(el => el.classList.toggle('d-none', !showEn));
-      document.querySelectorAll('.lang-ar').forEach(el => el.classList.toggle('d-none', showEn));
-      document.querySelector('.lang-toggle').textContent = showEn ? 'عربي' : 'English';
-    });
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- SKILLS -->
+    <div class="section">
+      <div class="section-title">Skills</div>
+      <div class="skills-grid">
+        <div class="skill-cat">Back-End</div>
+        <div class="skill-detail">PHP 8, Laravel 10/11, REST API, Eloquent ORM, Queues &amp; Jobs</div>
+
+        <div class="skill-cat">Front-End</div>
+        <div class="skill-detail">HTML5, CSS3, Bootstrap 5, JavaScript (ES6+), Blade</div>
+
+        <div class="skill-cat">Database</div>
+        <div class="skill-detail">MySQL — schema design, migrations, query optimisation</div>
+
+        <div class="skill-cat">Tools</div>
+        <div class="skill-detail">Git, GitHub, Composer, Linux CLI, cPanel</div>
+      </div>
+    </div>
+
+    <!-- LANGUAGES -->
+    <div class="section">
+      <div class="section-title">Languages</div>
+      <div class="lang-row">
+        <div class="lang-item"><strong>Arabic</strong><span>Native</span></div>
+        <div class="lang-item"><strong>English</strong><span>Professional</span></div>
+      </div>
+    </div>
+
+  </div><!-- /body -->
+</div><!-- /page -->
 </body>
 </html>
